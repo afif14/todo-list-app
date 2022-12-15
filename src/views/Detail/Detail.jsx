@@ -103,16 +103,14 @@ export default function Detail() {
             {modalInfo && (
                 <ModalInformation modalInfo={modalInfo} setModalInfo={setModalInfo} text='item berhasil dihapus' />
             )}
-            <div data-cy='modal-add'>
-                {addModal && (
-                    <ModalAddList
-                        dataDetail={todo}
-                        isEdit={isEdit}
-                        handleCancel={handleCancelAdd}
-                        handleSave={handleSave}
-                    />
-                )}
-            </div>
+            {addModal && (
+                <ModalAddList
+                    dataDetail={todo}
+                    isEdit={isEdit}
+                    handleCancel={handleCancelAdd}
+                    handleSave={handleSave}
+                />
+            )}
         </>
     )
 }
