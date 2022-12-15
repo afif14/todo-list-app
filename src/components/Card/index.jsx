@@ -12,11 +12,7 @@ export default function Card({ handleClickDelete, activity }) {
                 style={{ padding: "22px 27px", boxShadow: "0 4px 8px rgb(0 0 0 / 15%)" }}
                 className='activity-card bg-white rounded-xl  h-[234px]'
             >
-                <div
-                    data-cy='activity-item-title'
-                    onClick={() => navigate(`/detail/${activity?.id}`)}
-                    className='activity-body h-[158px]'
-                >
+                <div onClick={() => navigate(`/detail/${activity?.id}`)} className='h-[158px]'>
                     <h4 className='activity-item-tittle text-lg cursor-pointer font-bold'>{activity?.title}</h4>
                 </div>
                 <div className='flex items-center justify-between'>

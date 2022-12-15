@@ -63,16 +63,15 @@ const Dashboard = () => {
                     )}
                 </div>
             )}
-            <div data-cy='modal-delete'>
-                {showModal && (
-                    <ModalDelete
-                        actionCancelDelete={handleCancelDelete}
-                        actionDelete={deleteActivity}
-                        text='activity'
-                        activity={activity}
-                    />
-                )}
-            </div>
+            <div data-cy='modal-delete'></div>
+            {showModal && (
+                <ModalDelete
+                    actionCancelDelete={handleCancelDelete}
+                    actionDelete={deleteActivity}
+                    text='activity'
+                    activity={activity}
+                />
+            )}
             <div data-cy='modal-information'>
                 {modalInfo && (
                     <ModalInformation
