@@ -4,6 +4,11 @@ import { TbPencil } from "react-icons/tb"
 import ModalAddList from "../Modal/ModalAddList"
 
 const List = ({ text, handleUpdate, handleDelete, setIsEdit, setAddModal }) => {
+    const handleEdit = () => {
+        setIsEdit(true)
+        setAddModal(true)
+    }
+
     return (
         <div
             style={{ boxShadow: "0 4px 8px rgb(0 0 0 / 15%)" }}

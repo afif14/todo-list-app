@@ -14,8 +14,19 @@ import ModalInformation from "../../components/Modal/ModalInformation"
 import ModalAddList from "../../components/Modal/ModalAddList"
 
 export default function Detail() {
-    const { getListItemTodo, details, isLoading, handleDelete, setAddModal, handleCancelAdd, handleSave, setIsEdit } =
-        useDetail()
+    const {
+        getListItemTodo,
+        details,
+        isLoading,
+        showModal,
+        modalInfo,
+        addModal,
+        handleDelete,
+        setAddModal,
+        handleCancelAdd,
+        handleSave,
+        setIsEdit
+    } = useDetail()
     const [showDropdown, setShowDropdown] = useState(false)
     const [todo, setTodo] = useState({})
     const { id } = useParams()
@@ -60,31 +71,36 @@ export default function Detail() {
                         </div>
                     </div>
                     <div className='detail-content'>
-                        {details?.todo_items?.map((value) => {
-                            return (
-                                <List
-                                    details={value}
-                                    handleCancelAdd={handleCancelAdd}
-                                    handleSave={handleSave}
-                                    key={value?.id}
-                                    handleUpdate={() => {
-                                        setTodo(value)
-                                        setIsEdit(true)
-                                        setAddModal(true)
-                                    }}
-                                    text={value?.title}
-                                    handleDelete={() => handleDelete(value)}
+                        {details?.length ? (
+                            <>
+                                {details?.todo_items?.map((value) => {
+                                    return (
+                                        <List
+                                            details={value}
+                                            handleCancelAdd={handleCancelAdd}
+                                            handleSave={handleSave}
+                                            key={value?.id}
+                                            handleUpdate={() => {
+                                                setTodo(value)
+                                                setIsEdit(true)
+                                                setAddModal(true)
+                                            }}
+                                            text={value?.title}
+                                            handleDelete={() => handleDelete(value)}
+                                        />
+                                    )
+                                })}
+                            </>
+                        ) : (
+                            <div data-cy='todo-empty-state' className='flex items-center w-full'>
+                                <img
+                                    style={{ margin: "0 auto" }}
+                                    className='align-middle'
+                                    src={toDoEmpty}
+                                    alt='empty-dashboard-image'
                                 />
-                            )
-                        })}
-                    </div>
-                    <div className='flex items-center w-full'>
-                        <img
-                            style={{ margin: "0 auto" }}
-                            className='align-middle'
-                            src={toDoEmpty}
-                            alt='empty-dashboard-image'
-                        />
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
