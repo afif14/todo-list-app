@@ -59,36 +59,33 @@ export default function Detail() {
                             <Button onClick={() => setAddModal(true)} dataCy='todo-add-button' text={"Tambah"} />
                         </div>
                     </div>
-                    {details?.length ? (
-                        <div className='detail-content'>
-                            {details?.todo_items?.map((value) => {
-                                return (
-                                    <List
-                                        details={value}
-                                        handleCancelAdd={handleCancelAdd}
-                                        handleSave={handleSave}
-                                        key={value?.id}
-                                        handleUpdate={() => {
-                                            setTodo(value)
-                                            setIsEdit(true)
-                                            setAddModal(true)
-                                        }}
-                                        text={value?.title}
-                                        handleDelete={() => handleDelete(value)}
-                                    />
-                                )
-                            })}
-                        </div>
-                    ) : (
-                        <div data-cy='todo-empty-state' className='flex items-center w-full'>
-                            <img
-                                style={{ margin: "0 auto" }}
-                                className='align-middle'
-                                src={toDoEmpty}
-                                alt='empty-dashboard-image'
-                            />
-                        </div>
-                    )}
+                    <div className='detail-content'>
+                        {details?.todo_items?.map((value) => {
+                            return (
+                                <List
+                                    details={value}
+                                    handleCancelAdd={handleCancelAdd}
+                                    handleSave={handleSave}
+                                    key={value?.id}
+                                    handleUpdate={() => {
+                                        setTodo(value)
+                                        setIsEdit(true)
+                                        setAddModal(true)
+                                    }}
+                                    text={value?.title}
+                                    handleDelete={() => handleDelete(value)}
+                                />
+                            )
+                        })}
+                    </div>
+                    <div className='flex items-center w-full'>
+                        <img
+                            style={{ margin: "0 auto" }}
+                            className='align-middle'
+                            src={toDoEmpty}
+                            alt='empty-dashboard-image'
+                        />
+                    </div>
                 </div>
             )}
             {showDropdown ? <Dropdown /> : null}
