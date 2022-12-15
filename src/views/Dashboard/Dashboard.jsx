@@ -32,7 +32,7 @@ const Dashboard = () => {
             ) : (
                 <div className='container'>
                     <div style={{ margin: "43px 0 55px" }} className='flex flex-row justify-between'>
-                        <h1 data-cy='activity-title' className='text-4xl font-bold'>
+                        <h1 data-cy='activity-item-title' className='text-4xl font-bold'>
                             Activity
                         </h1>
                         <Button dataCy='activity-add-button' text='Tambah' onClick={createActivity} />

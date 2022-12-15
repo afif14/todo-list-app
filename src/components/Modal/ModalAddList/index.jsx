@@ -74,6 +74,7 @@ const ModalAddList = ({ handleCancel, handleSave, isEdit, dataDetail }) => {
                                     onChange={(e) => handleValue(e)}
                                     name='priority'
                                     value={data?.priority}
+                                    data-cy='modal-add-priority-dropdown'
                                 >
                                     <option value='very-high'>
                                         <span className='bg-danger w-[14px] h-[14px]'></span>Very High
@@ -97,6 +98,7 @@ const ModalAddList = ({ handleCancel, handleSave, isEdit, dataDetail }) => {
                         {/*footer*/}
                         <div className='flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b'>
                             <button
+                                data-cy='modal-add-save-button'
                                 style={{ borderRadius: "45px", width: "150px", height: "45px" }}
                                 className='bg-emerald-500 text-lg text-white font-bold text-center rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150'
                                 type='button'
