@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Select, Option } from "@material-tailwind/react"
 
 const ModalAddList = ({ handleCancel, handleSave, isEdit, dataDetail }) => {
     const [data, setData] = useState({
